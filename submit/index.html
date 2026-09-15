@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smallwebb | submit / report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        bg: '#0a0a0a',
+                        fg: '#e5e5e5',
+                        muted: '#737373',
+                        border: '#262626',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+        }
+        
+        /* Utilitarian minimalist elements */
+        .box-border {
+            border: 1px solid #262626;
+        }
+        
+        .solid-hover:hover {
+            background-color: #e5e5e5;
+            color: #0a0a0a;
+        }
+        
+        /* Clean scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #262626; }
+        ::-webkit-scrollbar-thumb:hover { background: #737373; }
+    </style>
+</head>
+<body class="font-mono antialiased min-h-screen flex flex-col selection:bg-fg selection:text-bg">
+
+    <header class="border-b border-border bg-bg sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 gap-4 sm:gap-0">
+                
+                <a href="/" class="text-xl font-bold tracking-tight">
+                    smallwebb.
+                </a>
+                
+                <nav class="flex flex-wrap gap-6 text-sm items-center">
+                    <a href="/donate" class="text-muted hover:text-fg transition-colors">donate</a>
+                    <a href="/submit" class="text-muted hover:text-fg transition-colors">submit / report</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="max-w-2xl">
+                <h1 class="text-3xl md:text-4xl font-bold leading-snug mb-6">
+                    submit or report a site.
+                </h1>
+                <p class="text-muted mb-12 text-base md:text-lg leading-relaxed">
+                    want to add a useful, tracker-free tool to the index? or did you find a listed site that added ads or analytics? let me know through any of the channels below.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border box-border">
+                
+                <div class="bg-bg p-6 lg:p-8">
+                    <h3 class="font-bold mb-3 text-lg">email</h3>
+                    <p class="text-sm text-muted leading-relaxed">
+                        <a href="mailto:peterdbaltes@gmail.com" class="hover:text-fg transition-colors">peterdbaltes@gmail.com</a>
+                    </p>
+                </div>
+
+                <div class="bg-bg p-6 lg:p-8">
+                    <h3 class="font-bold mb-3 text-lg">whatsapp</h3>
+                    <p class="text-sm text-muted leading-relaxed">
+                        +49 178 914 2763
+                    </p>
+                </div>
+
+                <div class="bg-bg p-6 lg:p-8">
+                    <h3 class="font-bold mb-3 text-lg">signal</h3>
+                    <p class="text-sm text-muted leading-relaxed">
+                        pidi.01
+                    </p>
+                </div>
+
+                <div class="bg-bg p-6 lg:p-8">
+                    <h3 class="font-bold mb-3 text-lg">snapchat</h3>
+                    <p class="text-sm text-muted leading-relaxed">
+                        vinetapeter
+                    </p>
+                </div>
+
+                <div class="bg-bg p-6 lg:p-8">
+                    <h3 class="font-bold mb-3 text-lg">instagram</h3>
+                    <p class="text-sm text-muted leading-relaxed">
+                        @pidi.mp3
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-border py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted">
+            <div>
+                smallwebb
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="https://github.com/smallwebb" class="hover:text-fg transition-colors">source</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
