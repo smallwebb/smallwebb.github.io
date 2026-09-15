@@ -1,1 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smallwebb | The web, as it was meant to be</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Work Sans"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace'],
+                    },
+                    colors: {
+                        'sw-bg': '#F4F4F0',
+                        'sw-dark': '#111111',
+                        'sw-accent': '#3A6B58', // Muted green
+                        'sw-accent-hover': '#2a4d3f',
+                    },
+                    boxShadow: {
+                        'brutal': '4px 4px 0px 0px rgba(17,17,17,1)',
+                        'brutal-hover': '2px 2px 0px 0px rgba(17,17,17,1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F4F4F0;
+            color: #111111;
+            /* Subtly nostalgic background pattern */
+            background-image: radial-gradient(#d5d5d0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        /* Smooth interactions for brutalist elements */
+        .brutal-btn {
+            transition: all 0.15s ease-in-out;
+        }
+        .brutal-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px rgba(17,17,17,1);
+        }
+        .brutal-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px rgba(17,17,17,1);
+        }
+        
+        .brutal-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .brutal-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 0px 0px rgba(17,17,17,1);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col selection:bg-sw-accent selection:text-white">
 
+    <header class="border-b-4 border-sw-dark bg-sw-bg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-mono text-2xl font-bold tracking-tighter flex items-center gap-2">
+                        <span class="bg-sw-dark text-sw-bg px-2 py-1 leading-none">./</span>
+                        smallwebb
+                    </a>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-sw-dark font-semibold border-b-2 border-transparent hover:border-sw-dark transition-colors">Directory</a>
+                    <a href="#" class="text-sw-dark font-semibold border-b-2 border-transparent hover:border-sw-dark transition-colors">Principles</a>
+                    <a href="#" class="text-sw-dark font-semibold border-b-2 border-transparent hover:border-sw-dark transition-colors">Manifesto</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#" class="brutal-btn bg-sw-accent text-white font-mono font-bold px-6 py-2 border-2 border-sw-dark shadow-brutal">
+                        JOIN NETWORK
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="border-2 border-sw-dark p-2 shadow-brutal bg-white hover:bg-gray-100">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="max-w-4xl">
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
+                    The web, <br>
+                    <span class="text-sw-accent">as it was meant to be.</span>
+                </h1>
+                <p class="text-xl md:text-2xl font-mono text-gray-800 mb-10 max-w-2xl leading-relaxed">
+                    A decentralized network free of trackers, ads, clickbait, and algorithmic feeds. Build, share, and find truly private tools.
+                </p>
+            </div>
+
+            <!-- Search / Tool Finder -->
+            <div class="bg-white border-4 border-sw-dark shadow-brutal p-6 md:p-8 max-w-3xl mt-8">
+                <label for="search" class="block font-mono font-bold text-lg mb-4 uppercase tracking-wide">Find independent tools</label>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="relative flex-grow">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <input type="text" id="search" class="w-full pl-12 pr-4 py-4 border-2 border-sw-dark font-mono text-lg outline-none focus:ring-4 focus:ring-sw-accent/20 focus:border-sw-accent transition-all" placeholder="e.g. private file converter...">
+                    </div>
+                    <button class="brutal-btn bg-sw-dark text-white font-bold font-mono px-8 py-4 border-2 border-sw-dark shadow-brutal hover:bg-gray-800 flex-shrink-0">
+                        SEARCH
+                    </button>
+                </div>
+
+                <!-- Trending / Example Tools -->
+                <div class="mt-6">
+                    <span class="text-sm font-mono text-gray-600 mb-2 block">Popular right now:</span>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="px-3 py-1 border-2 border-sw-dark bg-[#F4F4F0] hover:bg-white text-sm font-semibold transition-colors">Offline PDF Converter</a>
+                        <a href="#" class="px-3 py-1 border-2 border-sw-dark bg-[#F4F4F0] hover:bg-white text-sm font-semibold transition-colors">E2E Notes</a>
+                        <a href="#" class="px-3 py-1 border-2 border-sw-dark bg-[#F4F4F0] hover:bg-white text-sm font-semibold transition-colors">Local Image Compressor</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Principles Section -->
+        <section class="border-t-4 border-sw-dark bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="mb-12 flex items-center justify-between border-b-4 border-sw-dark pb-4">
+                    <h2 class="text-3xl md:text-5xl font-extrabold uppercase tracking-tight">Core Principles</h2>
+                    <span class="font-mono text-xl hidden sm:block">/// 01</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Principle 1 -->
+                    <div class="brutal-card bg-[#F4F4F0] border-4 border-sw-dark p-6 shadow-brutal flex flex-col h-full">
+                        <div class="h-12 w-12 border-2 border-sw-dark bg-white flex items-center justify-center mb-6 shadow-[2px_2px_0px_0px_rgba(17,17,17,1)]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M3 3l18 18"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 uppercase">No Trackers</h3>
+                        <p class="font-mono text-gray-700 leading-relaxed text-sm flex-grow">
+                            We don't care who you are, where you've been, or what you're doing. Analytics and tracking scripts are strictly banned from the smallwebb index.
+                        </p>
+                    </div>
+
+                    <!-- Principle 2 -->
+                    <div class="brutal-card bg-[#F4F4F0] border-4 border-sw-dark p-6 shadow-brutal flex flex-col h-full">
+                        <div class="h-12 w-12 border-2 border-sw-dark bg-white flex items-center justify-center mb-6 shadow-[2px_2px_0px_0px_rgba(17,17,17,1)]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 uppercase">Zero Ads</h3>
+                        <p class="font-mono text-gray-700 leading-relaxed text-sm flex-grow">
+                            Information shouldn't be held hostage by attention merchants. No banners, no pop-ups, no sponsored placements. Just the tools and content you need.
+                        </p>
+                    </div>
+
+                    <!-- Principle 3 -->
+                    <div class="brutal-card bg-[#F4F4F0] border-4 border-sw-dark p-6 shadow-brutal flex flex-col h-full">
+                        <div class="h-12 w-12 border-2 border-sw-dark bg-white flex items-center justify-center mb-6 shadow-[2px_2px_0px_0px_rgba(17,17,17,1)]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 uppercase">Truly Private</h3>
+                        <p class="font-mono text-gray-700 leading-relaxed text-sm flex-grow">
+                            Tools on smallwebb process data locally on your machine whenever possible. If data must be sent, it is end-to-end encrypted by default.
+                        </p>
+                    </div>
+
+                    <!-- Principle 4 -->
+                    <div class="brutal-card bg-sw-accent text-white border-4 border-sw-dark p-6 shadow-brutal flex flex-col h-full">
+                        <div class="h-12 w-12 border-2 border-sw-dark bg-sw-dark text-white flex items-center justify-center mb-6 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 uppercase">Decentralized</h3>
+                        <p class="font-mono text-gray-100 leading-relaxed text-sm flex-grow">
+                            No single point of failure, no corporate overlords. Hosted by the community, for the community, utilizing peer-to-peer protocols.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- Simple CTA -->
+        <section class="border-t-4 border-sw-dark bg-sw-bg py-20">
+            <div class="max-w-4xl mx-auto text-center px-4">
+                <h2 class="text-4xl font-extrabold mb-6">Tired of the modern web?</h2>
+                <p class="font-mono text-lg mb-8 max-w-2xl mx-auto">Help us build the alternative. Host a node, submit a privacy-first tool, or just start browsing the directory.</p>
+                <div class="flex justify-center gap-4 flex-wrap">
+                    <button class="brutal-btn bg-sw-dark text-white font-bold font-mono px-8 py-4 border-2 border-sw-dark shadow-brutal hover:bg-gray-800">
+                        BROWSE DIRECTORY
+                    </button>
+                    <button class="brutal-btn bg-white text-sw-dark font-bold font-mono px-8 py-4 border-2 border-sw-dark shadow-brutal hover:bg-gray-100">
+                        READ MANIFESTO
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Minimalist Footer -->
+    <footer class="border-t-4 border-sw-dark bg-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-mono font-bold text-xl flex items-center gap-2">
+                <span class="bg-sw-dark text-sw-bg px-2 py-1 leading-none text-sm">./</span>
+                smallwebb
+            </div>
+            
+            <div class="flex gap-6 font-mono text-sm font-semibold">
+                <a href="#" class="hover:underline decoration-2 underline-offset-4">GitHub</a>
+                <a href="#" class="hover:underline decoration-2 underline-offset-4">Protocol</a>
+                <a href="#" class="hover:underline decoration-2 underline-offset-4">Submit Tool</a>
+                <a href="#" class="hover:underline decoration-2 underline-offset-4">Donate</a>
+            </div>
+
+            <div class="font-mono text-sm text-gray-500">
+                Copyleft (c) 2026. Unlicense.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
